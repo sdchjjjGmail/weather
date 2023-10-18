@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">weather</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="yes">네</string>
+    <string name="no">아니요</string>
+    <string name="mon">월</string>
+    <string name="tue">화</string>
+    <string name="wed">수</string>
+    <string name="thu">목</string>
+    <string name="fri">금</string>
+    <string name="sat">토</string>
+    <string name="sun">일</string>
+    <string name="tomorrow">내일</string>
+    <string name="day_after_tomrw">모래</string>
+    <string name="input_place_search_keyword">장소를 입력하세요.</string>
+    <string name="search_place">장소 검색</string>
+    <string name="check_weather">날씨를 확인하세요.</string>
+    <string name="failed_search">검색에 실패했어요</string>
+    <string name="ask_register_place">이 장소를 등록할까요?</string>
+    <string name="current_weather">현재날씨</string>
+    <string name="daily_weather">하루날씨</string>
+    <string name="weekly_weather">일주일날씨</string>
+    <string name="this_place">이 장소를</string>
+    <string name="replace">수정할래요</string>
+    <string name="delete">삭제할래요</string>
+    <string name="check_weather_this_place">이곳의 날씨를 확인할까요?</string>
+    <string name="min">최저:</string>
+    <string name="max">최고:</string>
+    <string name="celsius_sign">°C</string>
+    <string name="day">낮</string>
+    <string name="night">밤</string>
+</resources>

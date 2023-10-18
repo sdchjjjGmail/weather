@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.contents.weather.fragment.HomeWeatherFragment" />
+
+        <variable
+            name="viewModel"
+            type="com.contents.weather.viewmodel.HomeWeatherViewModel" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:drawable="@drawable/background_rain"
+        tools:context=".fragment.HomeWeatherFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/location_container"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/first_location_container"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:background="@{viewModel.selectedContainerId == 1 ? @color/white : @color/black}"
+                    android:gravity="center"
+                    android:onClick="@{() -> viewModel.onLocationClicked(fragment, 1)}"
+                    android:onLongClickListener="@{() -> viewModel.onLocationLongClicked(fragment, 1)}"
+                    android:text="@{viewModel.firstContainerLocation}"
+                    android:textColor="@{viewModel.selectedContainerId == 1 ? @color/black : @color/white}"
+                    app:layout_constraintEnd_toStartOf="@id/second_location_container"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/second_location_container"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:background="@{viewModel.selectedContainerId == 2 ? @color/white : @color/black}"
+                    android:gravity="center"
+                    android:onClick="@{() -> viewModel.onLocationClicked(fragment, 2)}"
+                    android:onLongClickListener="@{() -> viewModel.onLocationLongClicked(fragment, 2)}"
+                    android:text="@{viewModel.secondContainerLocation}"
+                    android:textColor="@{viewModel.selectedContainerId == 2 ? @color/black : @color/white}"
+                    app:layout_constraintEnd_toStartOf="@id/third_location_container"
+                    app:layout_constraintStart_toEndOf="@id/first_location_container" />
+
+                <TextView
+                    android:id="@+id/third_location_container"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="5dp"
+                    android:background="@{viewModel.selectedContainerId == 3 ? @color/white : @color/black}"
+                    android:gravity="center"
+                    android:onClick="@{() -> viewModel.onLocationClicked(fragment, 3)}"
+                    android:onLongClickListener="@{() -> viewModel.onLocationLongClicked(fragment, 3)}"
+                    android:text="@{viewModel.thirdContainerLocation}"
+                    android:textColor="@{viewModel.selectedContainerId == 3 ? @color/black : @color/white}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/second_location_container" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager_weather"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/tab_layout"
+            app:layout_constraintTop_toBottomOf="@id/location_container" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_weather"
+    app:startDestination="@id/homeWeatherFragment">
+
+    <fragment
+        android:id="@+id/placeSearchFragment"
+        android:name="com.contents.weather.fragment.PlaceSearchFragment"
+        android:label="PlaceSearchFragment">
+        <action
+            android:id="@+id/action_placeSearchFragment_to_homeWeatherFragment"
+            app:destination="@id/homeWeatherFragment" />
+        <argument
+            android:name="containerId"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeWeatherFragment"
+        android:name="com.contents.weather.fragment.HomeWeatherFragment"
+        android:label="fragment_home_weather"
+        tools:layout="@layout/fragment_home_weather">
+        <action
+            android:id="@+id/action_homeWeatherFragment_to_placeSearchFragment"
+            app:destination="@id/placeSearchFragment" />
+        <argument
+            android:name="userLocation"
+            android:defaultValue="@null"
+            app:argType="com.contents.domain.model.UserLocation"
+            app:nullable="true" />
+    </fragment>
+</navigation>
